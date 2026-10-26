@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Sign-in complete — ROZZKAZYK</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Sign-in complete</h1>
+  <p id="msg">Copy the full address of this page from the browser's address bar and paste it into the autovideo tool.</p>
+  <p class="small">This page does not store or send anything: the authorization code stays only in your address bar.</p>
+</main>
+<script>
+  // Код входа остаётся только в адресной строке: страница ничего не отправляет и не сохраняет.
+  var q = new URLSearchParams(location.search);
+  if (q.get("error")) {
+    document.getElementById("msg").textContent = "Sign-in was not completed: " + q.get("error") +
+      (q.get("error_description") ? " — " + q.get("error_description") : "");
+  }
+</script>
+</body>
+</html>
